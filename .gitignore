@@ -1,0 +1,70 @@
+# dependencies
+node_modules/
+
+# next.js
+.next/
+out/
+
+# environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# vercel
+.vercel
+
+# debug
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+*.swp
+*.swo
+
+# build
+*.tsbuildinfo
+next-env.d.ts
+
+# heavy static media — not versioned
+public/assets/
+_assets_originals/
+
+# internal-only — never push to shared/external repos
+drafts/
+CLAUDE.md
+SITEMAP.md
+ASSETS_INVENTORY.md
+DESIGN_AUDIT.md
+DESIGN_SYSTEM.md
+DRIVE_ASSET_AUDIT.md
+MIGRATION_PREMIUM.md
+references/
+screenshots/
+seedance/
+scripts/
+_port/
+_port_compare.mjs
+_port_verify.mjs
+_audit.mjs
+_hero_*.mjs
+_live_*.mjs
+_menu_check.mjs
+_photos_journey.mjs
+_real_check.mjs
+_recheck.mjs
+_ref_site.mjs
+_screenshot.mjs
+_shop_test.mjs
+_voyage_check.mjs
+_vy*.mjs
+scrape_cherryriver.py
+woocommerce-products-export.csv
+index.html
+script.js
+.vercel-old-link-backup/

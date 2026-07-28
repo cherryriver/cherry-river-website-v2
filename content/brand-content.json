@@ -1,0 +1,107 @@
+{
+  "vision": {
+    "tagline": "Boissons modernes élaborées au Québec — Modern Drinks from Canada",
+    "principle": "The site is not a commercial showcase — it is a complete universe",
+    "signature": "Every page must carry the signature of an authentically Quebecois, resolutely modern brand"
+  },
+  "brandPillars": [
+    "La distillerie — deux lieux historiques, héritage et savoir-faire",
+    "La culture cocktail — art de vivre, mixologie, créations saisonnières",
+    "Les expériences — moments uniques au cœur des distilleries",
+    "L'héritage québécois — identité ancrée dans la culture et les paysages"
+  ],
+  "positioning": {
+    "statement": "Bien plus qu'une distillerie — une maison de boissons modernes",
+    "disciplines": ["Distillation", "Mixologie", "Design & Hospitalité", "Création"]
+  },
+  "locations": {
+    "magog": {
+      "name": "Magog — Ancienne église anglicane",
+      "highlights": [
+        "Édifice de plus de 150 ans",
+        "Architecture néo-gothique, voûtes de pierre, vitraux",
+        "Alambics en cuivre au cœur de la nef",
+        "\"Un dialogue entre le sacré et le sensuel\""
+      ],
+      "offer": ["Architecture historique", "Alambics artisanaux", "Dégustations & visites"]
+    },
+    "quebecSillery": {
+      "name": "Québec – Sillery — Mémorial Hall historique",
+      "highlights": [
+        "Quartier de Sillery",
+        "Distillerie boutique urbaine, bar à cocktails sophistiqué",
+        "\"La mixologie élevée au rang d'art de vivre\""
+      ],
+      "offer": ["Distillerie boutique", "Bar à cocktails", "Ateliers mixologie", "Dégustations guidées"]
+    }
+  },
+  "cocktailCulture": {
+    "quote": "Nous créons des boissons qui racontent une histoire — celle des saisons, du terroir québécois et de l'excellence artisanale.",
+    "philosophy": [
+      {
+        "title": "Saisons & terroir",
+        "text": "Ingrédients locaux sélectionnés au fil des saisons"
+      },
+      {
+        "title": "Équilibre & précision",
+        "text": "Travail minutieux d'assemblage et calibration"
+      },
+      {
+        "title": "Beauté & sensation",
+        "text": "L'esthétique du cocktail aussi importante que le goût"
+      }
+    ]
+  },
+  "products": {
+    "spiritueux": [
+      "Vodka Averse Cherry River",
+      "Vodka Érable",
+      "Gin Petits Fruits & Basilic",
+      "Tequila Silver",
+      "Rhum Épicé",
+      "Liqueur de Café",
+      "Amaretto",
+      "Crème Alcoolisée de Crème Glacée Coaticook (nouveau, exclusif)",
+      "Plusieurs autres créations saisonnières"
+    ],
+    "rtd": [
+      {
+        "name": "Limonade de Gin Petits Fruits & Basilic",
+        "tagline": "La fraîcheur du gin maison, la vivacité des petits fruits et le parfum délicat du basilic frais — une alliance estivale et sophistiquée."
+      },
+      {
+        "name": "Limonade de Vodka Citron Lime",
+        "tagline": "La pureté de la vodka Cherry River rencontre le zeste vif du citron et du lime pour une limonade moderne et désaltérante."
+      },
+      {
+        "name": "Orange Sanguine & Framboises",
+        "tagline": "L'acidité de l'orange sanguine se mêle à la rondeur fruitée des framboises sauvages."
+      }
+    ],
+    "mocktails": "9 saveurs, sans alcool, ingrédients naturels, sans arômes artificiels",
+    "sirops": "Naturels, pour mixologie créative, polyvalents (cocktails et mocktails, chauds ou froids)",
+    "accessoires": "Shakers, Jiggers, Verrerie, Outils de bar"
+  },
+  "experiences": [
+    "Dégustations guidées — parcours sensoriels commentés",
+    "Ateliers de mixologie — sessions interactives avec experts",
+    "Visites guidées — de la matière première à l'embouteillage",
+    "Événements privés — corporatif, célébrations, lancements"
+  ],
+  "tourism": {
+    "statement": "Cherry River est bien plus qu'une distillerie — c'est une destination touristique",
+    "angles": ["Terroir québécois", "Architecture & patrimoine", "Art de vivre québécois"]
+  },
+  "boutique": {
+    "categories": ["Accessoires", "Sirops", "Mocktails", "Coffrets cadeaux"]
+  },
+  "photographyDirection": {
+    "aesthetic": "Minimal elegant, not cinematic dark",
+    "guidelines": [
+      "Natural light, warm ivory tones",
+      "Products on pure white backgrounds",
+      "Spaces in natural daylight, not dramatic lighting",
+      "Reference: Aesop, The Botanist — not Hendrick's dark aesthetic"
+    ]
+  }
+}

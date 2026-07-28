@@ -1,0 +1,222 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* -------------------------------------------------------------------------
+   Cherry River — Design tokens
+   Mixed palette: dark hero/cocktail/newsletter, warm cream products/experiences
+   ------------------------------------------------------------------------- */
+
+:root {
+  /* Section-specific backgrounds */
+  --bg-black: #090909;
+  --bg-dark: #1C1C1C;
+  --bg-light: #F5F0E8;
+  --bg-light-rgb: 245, 240, 232;
+  --bg-light-elevated: #FAF7F2;
+  --bg-cream: var(--bg-light);
+  --bg-footer: #111111;
+
+  /* Text on dark */
+  --text-light: #f0ebe4;
+  --text-light-secondary: #a89f94;
+  --text-light-muted: #6b6258;
+
+  /* Text on light */
+  --text-on-light: #1a1a1a;
+  --text-dark: var(--text-on-light);
+  --text-dark-secondary: #6b6258;
+  --text-dark-muted: #a89f94;
+
+  /* Accents */
+  --color-accent-gold: #c9a84c;
+  --color-accent-cherry: #8b1a1a;
+
+  /* Borders */
+  --border-dark: #2a2520;
+  --border-light: rgba(201,168,76,0.2);
+
+  /* Layout */
+  --content-max-width: 72rem;
+  --content-margin-x: clamp(1.5rem, 5vw, 5rem);
+  --section-gap: clamp(6rem, 12vw, 10rem);
+
+  /* Section gaps — 4-tier scale (P2 anti-slop)
+     Use to orchestrate narrative rhythm across the page */
+  --section-gap-intimate: 4rem;                          /* between narratively linked elements */
+  --section-gap-standard: clamp(6rem, 10vw, 8rem);       /* between normal sections */
+  --section-gap-pause: clamp(8rem, 14vw, 12rem);         /* before a climax (Spirits, Awards) */
+  --section-gap-cinematic: clamp(12rem, 20vw, 16rem);    /* before first section after hero, and before footer */
+}
+
+[data-bg="cream"] {
+  --bg-light: #F5F0E8;
+  --bg-light-rgb: 245, 240, 232;
+}
+
+[data-bg="white"] {
+  --bg-light: #FFFFFF;
+  --bg-light-rgb: 255, 255, 255;
+}
+
+[data-light-theme="cream"] {
+  --bg-light: #F5F0E8;
+  --bg-light-rgb: 245, 240, 232;
+  --bg-light-elevated: #FAF7F2;
+  --text-on-light: #1a1a1a;
+}
+
+[data-light-theme="white"] {
+  --bg-light: #FFFFFF;
+  --bg-light-rgb: 255, 255, 255;
+  --bg-light-elevated: #FAFAFA;
+  --text-on-light: #090909;
+}
+
+@layer base {
+  html {
+    @apply antialiased;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-body font-light;
+    background: var(--bg-black);
+    color: var(--text-light);
+    font-weight: var(--font-body-weight);
+    font-size: 1rem;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-heading {
+    font-weight: var(--font-display-weight);
+    letter-spacing: var(--font-display-tracking);
+  }
+}
+
+/* -------------------------------------------------------------------------
+   Animations
+   ------------------------------------------------------------------------- */
+
+@keyframes scroll-pulse {
+  0%, 100% { opacity: 0.3; transform: translateY(0); }
+  50%      { opacity: 0.8; transform: translateY(6px); }
+}
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+
+/* -------------------------------------------------------------------------
+   Scroll-triggered animations
+   ------------------------------------------------------------------------- */
+
+.animate-on-scroll {
+  /* Default values — overridable via inline CSS variables (props) */
+  --anim-tx: 0px;
+  --anim-ty: 30px;
+  --anim-rotate: 0deg;
+  --anim-duration: 0.8s;
+  --anim-easing: cubic-bezier(0.16, 1, 0.3, 1);
+
+  opacity: 0;
+  transform: translate(var(--anim-tx), var(--anim-ty)) rotate(var(--anim-rotate));
+  transition:
+    opacity var(--anim-duration) var(--anim-easing),
+    transform var(--anim-duration) var(--anim-easing);
+  will-change: opacity, transform;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translate(0, 0) rotate(0deg);
+  will-change: auto;
+}
+
+/* -------------------------------------------------------------------------
+   Cinematic section reveal (P8)
+   Used between major narrative sections on the homepage
+   for a slower, more dramatic entrance with subtle blur defocus.
+   ------------------------------------------------------------------------- */
+
+.section-cinematic-enter {
+  opacity: 0;
+  transform: translateY(48px) scale(0.98);
+  filter: blur(8px);
+  transition:
+    opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter;
+}
+
+.section-cinematic-enter.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+  will-change: auto;
+}
+
+/* -------------------------------------------------------------------------
+   Accessibility: reduced motion
+   ------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-on-scroll,
+  .section-cinematic-enter {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   Content visibility for below-the-fold sections (CLS/LCP)
+   ------------------------------------------------------------------------- */
+
+.content-visibility-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
+}
+
+/* -------------------------------------------------------------------------
+   Infinite marquee
+   ------------------------------------------------------------------------- */
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* -------------------------------------------------------------------------
+   Custom scrollbar
+   ------------------------------------------------------------------------- */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #2a2520; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #6b6258; }
+
+/* -------------------------------------------------------------------------
+   Buttons — Brandon Bold. !important needed because Tailwind v3 in this
+   project doesn't use @layer, so class selectors (.font-body) beat element
+   selectors (button) on specificity. !important wins regardless.
+   ------------------------------------------------------------------------- */
+.btn-tactile,
+button {
+  font-family: var(--font-display) !important;
+  font-weight: 700 !important;
+}

@@ -1,0 +1,128 @@
+{
+  "products": [
+    {
+      "slug": "vodka-cerise",
+      "name": "Vodka cerise",
+      "description": "Savourez notre Vodka Cerise, aux arômes authentiques de cerises mûres. Parfait pour cocktails ou shots. Disponible chez Cherry River.",
+      "url": "https://www.cherryriver.ca/spiritueux/vodka-cerise/"
+    },
+    {
+      "slug": "vodka-erable",
+      "name": "Vodka érable",
+      "description": "Découvrez notre Vodka Érable avec alcool, subtilement sucrée aux notes d’érable authentique. Flacon 750 ml idéal pour cocktails ou dégustation. Disponible chez Cherry River.",
+      "url": "https://www.cherryriver.ca/spiritueux/vodka-erable/"
+    },
+    {
+      "slug": "vodka-original-premium",
+      "name": "Vodka Averse",
+      "description": "Dégustez notre Vodka Original Premium avec alcool, toute en pureté et finesse. Flacon 750 ml parfait pour cocktails classiques ou dégustation. Disponible chez Cherry River.",
+      "url": "https://www.cherryriver.ca/spiritueux/vodka-original-premium/"
+    },
+    {
+      "slug": "rhum-epice",
+      "name": "Rhum épicé",
+      "description": "Dégustez notre Rhum Épicé avec alcool, relevé d’épices chaudes pour des cocktails ou digestifs savoureux. Flacon 750ml disponible chez Cherry River.",
+      "url": "https://www.cherryriver.ca/spiritueux/rhum-epice/"
+    },
+    {
+      "slug": "rhum-ambre",
+      "name": "Rhum ambré",
+      "description": "Découvrez notre Rhum Ambré avec alcool, aux notes riches et caramélisées. Flacon 750ml parfait pour cocktails ou dégustation. Disponible chez Cherry River.",
+      "url": "https://www.cherryriver.ca/spiritueux/rhum-ambre/"
+    },
+    {
+      "slug": "bourbon-whiskey",
+      "name": "Bourbon Whiskey",
+      "description": "Découvrez notre Bourbon Whiskey, aux notes boisées et vanillées. Flacon 750 ml pour revisiter vos classiques cocktails. Disponible chez Cherry River.",
+      "url": "https://www.cherryriver.ca/spiritueux/bourbon-whiskey/"
+    },
+    {
+      "slug": "liqueur-amaretto",
+      "name": "Liqueur d'amaretto",
+      "description": "Savourez notre Liqueur Amaretto avec alcool, aux arômes d’amandes grillées et de vanille. Flacon 750 ml idéal pour cocktails ou digestifs. Disponible chez Cherry River.",
+      "url": "https://www.cherryriver.ca/spiritueux/liqueur-amaretto/"
+    },
+    {
+      "slug": "liqueur-de-cafe",
+      "name": "Liqueur de café",
+      "description": "Dégustez notre Liqueur de Café avec alcool, riche en arômes intenses de grain torréfié. Flacon 750 ml parfait pour cocktails ou digestif. Disponible chez Cherry River.",
+      "url": "https://www.cherryriver.ca/spiritueux/liqueur-de-cafe/"
+    },
+    {
+      "slug": "liqueur-dorange",
+      "name": "Liqueur d’orange",
+      "description": "Savourez notre Liqueur d’Orange avec alcool, alliant zestes d’orange et douceur subtile. Flacon 750 ml parfait pour cocktails ou desserts. Disponible chez Cherry River.",
+      "url": "https://www.cherryriver.ca/spiritueux/liqueur-dorange/"
+    },
+    {
+      "slug": "liqueur-de-vanille",
+      "name": "Liqueur de vanille",
+      "description": "Savourez notre Liqueur de Vanille avec alcool, aux arômes gourmands et chaleureux de vanille pure. Flacon 750 ml parfait pour cocktails, desserts ou digestif. Disponible chez Cherry River.",
+      "url": "https://www.cherryriver.ca/spiritueux/liqueur-de-vanille/"
+    },
+    {
+      "slug": "creme-alcoolisee-coaticook",
+      "name": "Crème Alcoolisée de Crème Glacée Coaticook",
+      "category": "liqueurs",
+      "subcategory": "creme",
+      "description": "Une liqueur crémeuse élaborée en partenariat exclusif avec la Laiterie de Coaticook. Une alliance unique entre le savoir-faire artisanal de Cherry River et la crème glacée emblématique du Québec.",
+      "tagline": "Le Québec en bouteille — crémeux, généreux, inoubliable.",
+      "availableAt": ["SAQ", "Boutique"],
+      "isFeatured": true,
+      "isNew": true,
+      "tags": ["nouveau", "exclusif", "collaboration", "coaticook", "québec"],
+      "image": "/assets/images/products/creme-alcoolisee-coaticook.jpg",
+      "note": "Photo à ajouter manuellement"
+    },
+    {
+      "slug": "gin-pamplemousse-rose",
+      "name": "Gin Pamplemousse Rose",
+      "description": "Goûtez notre Gin Pamplemousse Rosé avec alcool, délicatement fruité et floral. Flacon 750 ml idéal pour cocktails rafraîchissants. Disponible chez Cherry River.",
+      "url": "https://www.cherryriver.ca/spiritueux/gin-pamplemousse-rose/"
+    },
+    {
+      "slug": "gin-litchi-tangerine",
+      "name": "Gin Litchi et tangerine",
+      "description": "Savourez notre Gin Litchi Tangerine avec alcool, aux arômes fruités et exotiques de litchi et tangerine. Flacon 750 ml parfait pour cocktails élégants. Disponible chez Cherry River.",
+      "url": "https://www.cherryriver.ca/spiritueux/gin-litchi-tangerine/"
+    },
+    {
+      "slug": "gin-lime-gingembre",
+      "name": "Gin lime et gingembre",
+      "description": "Savourez notre Gin Lime Gingembre avec alcool, aux notes vives de lime et piquantes de gingembre. Parfait pour cocktails épicés et rafraîchissants. Disponible chez Cherry River.",
+      "url": "https://www.cherryriver.ca/spiritueux/gin-lime-gingembre/"
+    },
+    {
+      "slug": "gin-framboise-lime",
+      "name": "Gin Framboise & Lime",
+      "description": "Découvrez le Gin framboise & lime de Cherry River : un gin artisanal du Québec (750 ml, 40 %) où la vivacité des fruits rouges et des agrumes se marie à la rondeur du genièvre. Idéal en cocktail rafraîchissant.",
+      "url": "https://www.cherryriver.ca/spiritueux/gin-framboise-lime/"
+    },
+    {
+      "slug": "gin-floral",
+      "name": "Gin floral",
+      "description": "Découvrez le Gin Floral de Cherry River (750 ml, 40 %) : un gin artisanal québécois aux notes florales et fruitées de pamplemousse, litchi et fleurs sauvages. Parfait pour cocktails sophistiqués.",
+      "url": "https://www.cherryriver.ca/spiritueux/gin-floral/"
+    },
+    {
+      "slug": "dry-gin",
+      "name": "Dry Gin",
+      "description": "Découvrez le Dry Gin artisanal de Cherry River : un London dry complexe, aux arômes de genièvre, citron amer, coriandre et botaniques sauvages du Québec comme le thé du Labrador.",
+      "url": "https://www.cherryriver.ca/spiritueux/dry-gin/"
+    },
+    {
+      "slug": "gin-petits-fruits-basilic",
+      "name": "Gin Petits Fruits & Basilic",
+      "description": "Découvrez le Gin Cherry River aux petits fruits & basilic (750 ml, 40 %) : une alliance fraîche et sophistiquée de genièvre, baies canadiennes (mûre, bleuet, canneberge) et basilic pour une finale équilibrée.",
+      "url": "https://www.cherryriver.ca/spiritueux/gin-petits-fruits-basilic/"
+    },
+    {
+      "slug": "tequila-silver",
+      "name": "Tequila Silver",
+      "description": "Savourez notre Tequila Silver, pure et cristalline, idéale pour shots et cocktails classiques. Flacon 750 ml disponible chez Cherry River.",
+      "url": "https://www.cherryriver.ca/spiritueux/tequila-silver/"
+    }
+  ],
+  "tagline": "Boissons modernes élaborées au Québec — Modern Drinks from Canada",
+  "source": "https://www.cherryriver.ca"
+}

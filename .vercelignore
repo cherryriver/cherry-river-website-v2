@@ -1,0 +1,31 @@
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+node_modules
+.next
+.vercel
+.git
+*.tsbuildinfo
+.DS_Store
+
+# Lifestyle bulk (5.7GB) — keep only curated/ and Photo distillerie Magog/
+public/assets/lifestyle/*
+!public/assets/lifestyle/curated
+!public/assets/lifestyle/Photo distillerie Magog
+
+# Raw uncompressed videos (250MB) — keep only compressed/
+public/assets/videos/*
+!public/assets/videos/compressed
+public/assets/video/
+
+# Raw camera shoots in thirst brand folder (84MB, not referenced)
+public/assets/brands/thirst/DSCF*
+public/assets/brands/thirst/*.part
+
+# Nouveaux sections (juillet 2026): 2 photos Québec boutique utilisées
+!public/assets/lifestyle/Photos_Quebec_boutique
+public/assets/lifestyle/Photos_Quebec_boutique/*
+!public/assets/lifestyle/Photos_Quebec_boutique/DSCF9780.jpg
+!public/assets/lifestyle/Photos_Quebec_boutique/1000021149 (1).jpg

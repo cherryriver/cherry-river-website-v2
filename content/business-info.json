@@ -1,0 +1,22 @@
+{
+  "magog": {
+    "name": "Cherry River — Magog",
+    "address": "",
+    "hours": "",
+    "phone": "",
+    "email": "",
+    "notes": "Église / distillerie Magog. Adresse, heures et contacts à confirmer sur www.cherryriver.ca ou avec le client."
+  },
+  "quebec_sillery": {
+    "name": "Cherry River — Québec (Sillery)",
+    "address": "",
+    "hours": "",
+    "phone": "",
+    "email": "",
+    "notes": "Memorial Hall, Sillery. Adresse, heures et contacts à confirmer sur www.cherryriver.ca ou avec le client."
+  },
+  "emails": [],
+  "phones": [],
+  "hours": {},
+  "source": "https://www.cherryriver.ca — scraped; adresses/horaires/téléphones non trouvés dans le HTML (à remplir manuellement ou depuis la page Réserver une visite)"
+}
