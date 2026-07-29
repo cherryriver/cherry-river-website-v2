@@ -31,6 +31,12 @@ function verifyStripeSignature(rawBody: string, signatureHeader: string, secret:
   const expectedSig = parts.v1;
   if (!timestamp || !expectedSig) return false;
 
+  // Reject stale/replayed deliveries — same 5-minute tolerance Stripe's own SDK uses.
+  const tsSec = parseInt(timestamp, 10);
+  if (!Number.isFinite(tsSec)) return false;
+  const ageSec = Math.floor(Date.now() / 1000) - tsSec;
+  if (ageSec > 300 || ageSec < -300) return false;
+
   const signedPayload = `${timestamp}.${rawBody}`;
   const computedSig = crypto.createHmac("sha256", secret).update(signedPayload, "utf8").digest("hex");
 
