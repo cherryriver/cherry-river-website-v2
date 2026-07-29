@@ -140,7 +140,7 @@ export function CartUI() {
           <button type="button" onClick={() => setOpen(false)} aria-label="Fermer" style={{ appearance: "none", background: "transparent", border: 0, color: "#f4efe6", fontSize: "22px", cursor: "pointer", lineHeight: 1 }}>×</button>
         </div>
 
-        <div style={{ flex: 1, overflowY: "auto", padding: "16px 24px" }}>
+        <div data-lenis-prevent style={{ flex: 1, overflowY: "auto", padding: "16px 24px" }}>
           {items.length === 0 && (
             <p style={{ color: "rgba(244,239,230,0.55)", fontSize: "14px" }}>Votre panier est vide.</p>
           )}

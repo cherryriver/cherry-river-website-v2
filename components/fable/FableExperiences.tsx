@@ -71,8 +71,8 @@ function BookingPanel({ exp, onClose }: { exp: Experience; onClose: () => void }
   }
 
   return (
-    <div onClick={onClose} style={{ position: "fixed", inset: 0, zIndex: 9500, background: "rgba(20,15,10,0.72)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)", display: "flex", alignItems: "center", justifyContent: "center", padding: "clamp(16px,4vw,48px)", overflowY: "auto" }}>
-      <div onClick={(e) => e.stopPropagation()} style={{ position: "relative", width: "min(560px,100%)", maxHeight: "92vh", overflowY: "auto", background: "#f4ede0", color: "#2a201a", borderRadius: "4px", padding: "clamp(28px,4vw,44px)", boxShadow: "0 40px 90px rgba(0,0,0,0.45)" }}>
+    <div onClick={onClose} data-lenis-prevent style={{ position: "fixed", inset: 0, zIndex: 9500, background: "rgba(20,15,10,0.72)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)", display: "flex", alignItems: "center", justifyContent: "center", padding: "clamp(16px,4vw,48px)", overflowY: "auto" }}>
+      <div onClick={(e) => e.stopPropagation()} data-lenis-prevent style={{ position: "relative", width: "min(560px,100%)", maxHeight: "92vh", overflowY: "auto", background: "#f4ede0", color: "#2a201a", borderRadius: "4px", padding: "clamp(28px,4vw,44px)", boxShadow: "0 40px 90px rgba(0,0,0,0.45)" }}>
         <button type="button" onClick={onClose} aria-label="Fermer" style={{ position: "absolute", top: "18px", right: "20px", appearance: "none", background: "transparent", border: 0, fontSize: "22px", lineHeight: 1, cursor: "pointer", color: "rgba(42,32,26,0.6)" }}>✕</button>
 
         <div style={{ fontSize: "11px", letterSpacing: "0.3em", textTransform: "uppercase", color: "#8e2436", fontWeight: 600, marginBottom: "14px" }}>Réservation</div>
