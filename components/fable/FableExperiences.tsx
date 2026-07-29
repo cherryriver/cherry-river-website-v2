@@ -27,30 +27,48 @@ function BookingPanel({ exp, onClose }: { exp: Experience; onClose: () => void }
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [guests, setGuests] = useState(2);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const locName = DISTILLERIES.find((d) => d.id === location)?.shortName ?? location;
   const today = useMemo(() => {
     const d = new Date();
     return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
   }, []);
 
-  const mailto = useMemo(() => {
-    const subject = `Réservation — ${exp.title} (${locName})`;
-    const body = [
-      `Bonjour,`,
-      ``,
-      `J'aimerais réserver l'expérience suivante :`,
-      ``,
-      `Expérience : ${exp.title}`,
-      `Distillerie : ${locName}`,
-      `Date souhaitée : ${date || "à confirmer"}`,
-      `Heure souhaitée : ${time || "à confirmer"}`,
-      `Nombre de personnes : ${guests}`,
-      ``,
-      `Merci de me confirmer la disponibilité.`,
-    ].join("\n");
-    return `mailto:info@cherryriver.ca?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  }, [exp.title, locName, date, time, guests]);
+  const canSubmit = date && time && name.trim() && /\S+@\S+\.\S+/.test(email) && !submitting;
+
+  async function handleSubmit() {
+    if (!canSubmit) return;
+    setSubmitting(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/experience-booking", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          experienceId: exp.id,
+          location,
+          date,
+          time,
+          guests,
+          customerName: name,
+          customerEmail: email,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error || "Une erreur est survenue, veuillez réessayer.");
+        setSubmitting(false);
+        return;
+      }
+      window.location.href = data.url;
+    } catch {
+      setError("Une erreur est survenue, veuillez réessayer.");
+      setSubmitting(false);
+    }
+  }
 
   return (
     <div onClick={onClose} style={{ position: "fixed", inset: 0, zIndex: 9500, background: "rgba(20,15,10,0.72)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)", display: "flex", alignItems: "center", justifyContent: "center", padding: "clamp(16px,4vw,48px)", overflowY: "auto" }}>
@@ -100,11 +118,20 @@ function BookingPanel({ exp, onClose }: { exp: Experience; onClose: () => void }
           <button type="button" aria-label="Plus" onClick={() => setGuests((g) => Math.min(exp.maxGuests, g + 1))} style={{ appearance: "none", background: "transparent", border: 0, cursor: "pointer", font: "inherit", fontSize: "18px", padding: "10px 18px", color: "#8e2436" }}>+</button>
         </div>
 
-        <a href={mailto} style={{ display: "block", textAlign: "center", padding: "16px 28px", background: "#8e2436", color: "#f4efe6", borderRadius: "100px", fontSize: "13px", letterSpacing: "0.12em", textTransform: "uppercase", fontWeight: 600 }}>
-          Envoyer ma demande
-        </a>
+        {/* Coordonnées */}
+        <div style={{ fontSize: "11px", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(42,32,26,0.55)", fontWeight: 600, marginBottom: "10px" }}>Vos coordonnées</div>
+        <input type="text" placeholder="Nom complet" value={name} onChange={(e) => setName(e.target.value)} style={{ width: "100%", padding: "13px 16px", marginBottom: "10px", background: "rgba(42,32,26,0.04)", border: "1px solid rgba(42,32,26,0.2)", borderRadius: "3px", color: "#2a201a", fontFamily: "inherit", fontSize: "15px", outline: "none" }} />
+        <input type="email" placeholder="Courriel" value={email} onChange={(e) => setEmail(e.target.value)} style={{ width: "100%", padding: "13px 16px", marginBottom: "22px", background: "rgba(42,32,26,0.04)", border: "1px solid rgba(42,32,26,0.2)", borderRadius: "3px", color: "#2a201a", fontFamily: "inherit", fontSize: "15px", outline: "none" }} />
+
+        {error && (
+          <p style={{ margin: "0 0 16px", padding: "12px 16px", background: "rgba(142,36,54,0.08)", border: "1px solid rgba(142,36,54,0.25)", borderRadius: "3px", fontSize: "13.5px", color: "#8e2436" }}>{error}</p>
+        )}
+
+        <button type="button" onClick={handleSubmit} disabled={!canSubmit} style={{ display: "block", width: "100%", textAlign: "center", padding: "16px 28px", background: canSubmit ? "#8e2436" : "rgba(42,32,26,0.25)", color: "#f4efe6", borderRadius: "100px", fontSize: "13px", letterSpacing: "0.12em", textTransform: "uppercase", fontWeight: 600, border: 0, cursor: canSubmit ? "pointer" : "not-allowed", appearance: "none", font: "inherit" }}>
+          {submitting ? "Un instant…" : `Payer et réserver — ${(exp.priceFrom ?? 0) * guests}$`}
+        </button>
         <p style={{ margin: "14px 0 0", textAlign: "center", fontSize: "12.5px", lineHeight: 1.5, color: "rgba(42,32,26,0.55)" }}>
-          Votre demande s&apos;ouvre dans votre courriel — nous confirmons la disponibilité sous 24&nbsp;h. Ou écrivez-nous&nbsp;: <a href="mailto:info@cherryriver.ca" style={{ color: "#8e2436" }}>info@cherryriver.ca</a>
+          Paiement sécurisé par Stripe — confirmation immédiate. Question&nbsp;? Écrivez-nous&nbsp;: <a href="mailto:info@cherryriver.ca" style={{ color: "#8e2436" }}>info@cherryriver.ca</a>
         </p>
       </div>
     </div>
