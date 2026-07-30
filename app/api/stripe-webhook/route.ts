@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import crypto from "crypto";
+import { EXPERIENCES, DISTILLERIES } from "@/content/experiences-data";
+import { createCalendarEvent } from "@/lib/google-calendar";
 
 export const runtime = "nodejs";
 
@@ -76,6 +78,38 @@ export async function POST(req: NextRequest) {
       const errText = await res.text();
       console.error("[stripe-webhook] failed to confirm booking", sessionId, errText);
       return NextResponse.json({ error: "Erreur de confirmation" }, { status: 500 });
+    }
+
+    // Best-effort Google Calendar sync — a failure here must not fail the
+    // webhook response, the payment is already confirmed regardless.
+    try {
+      const meta = session.metadata ?? {};
+      const exp = EXPERIENCES.find((e) => e.id === meta.experience_id);
+      if (exp && meta.date && meta.time) {
+        const distillery = DISTILLERIES.find((d) => d.id === meta.location);
+        const [h, m] = meta.time.split(":").map(Number);
+        const totalEndMinutes = h * 60 + m + exp.durationMinutes;
+        const endTime = `${String(Math.floor(totalEndMinutes / 60) % 24).padStart(2, "0")}:${String(
+          totalEndMinutes % 60
+        ).padStart(2, "0")}`;
+        const customerEmail = session.customer_details?.email ?? session.customer_email ?? "";
+
+        await createCalendarEvent({
+          summary: `${exp.title} — ${distillery?.shortName ?? meta.location} (${meta.guests ?? "?"} pers.)`,
+          description: [
+            `Client: ${meta.customer_name || "N/A"}`,
+            `Courriel: ${customerEmail}`,
+            `Invités: ${meta.guests ?? "?"}`,
+            `Session Stripe: ${sessionId}`,
+          ].join("\n"),
+          location: distillery?.fullAddress ?? "",
+          startDateTime: `${meta.date}T${meta.time}:00`,
+          endDateTime: `${meta.date}T${endTime}:00`,
+          timeZone: "America/Toronto",
+        });
+      }
+    } catch (calErr) {
+      console.error("[stripe-webhook] google calendar sync failed", sessionId, calErr);
     }
   }
 
